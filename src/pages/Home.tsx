@@ -43,7 +43,7 @@ export default function Home() {
                 />
               ))}
             </ul>
-            <div className="flex h-8 items-center space-x-8">
+            <div className="flex h-8 items-center space-x-4">
               <Button variant="primary">Filters</Button>
               <Separator className="w-[2px] bg-primary-weak" orientation="vertical" />
               {/* Subject filter */}

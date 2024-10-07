@@ -13,9 +13,9 @@ const buttonVariants = cva(
           'text-md font-medium hover:bg-primary/90 bg-primary-weak text-primary hover:text-primary-strong',
         primaryOutline:
           'text-md font-medium hover:bg-primary/90 border-[1px] dark:border-primary-ghost border-primary-weak bg-background text-primary hover:text-primary-strong',
-        accent: 'inline-flex items-center justify-center gap-2.5 bg-accent-background  text-white',
+        accent: 'inline-flex items-center justify-center gap-2.5 bg-background text-white',
         accentOutline:
-          'text-md font-medium inline-flex items-center justify-center gap-2.5 border-2 border-accent bg-white text-accent',
+          'text-md font-medium inline-flex items-center justify-center gap-2.5 border-2 border-accent bg-background text-accent',
         // secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         ghost: 'text-md font-medium text-primary-strong hover:text-primary',
         link: 'text-md font-medium text-primary underline-offset-4 hover:underline',

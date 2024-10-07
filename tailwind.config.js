@@ -90,6 +90,7 @@ export default {
             // fontWeight: '400',
           },
         ],
+        // subtle
         sm: [
           '0.875rem' /* 14px */,
           {

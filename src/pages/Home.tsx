@@ -32,7 +32,7 @@ export default function Home() {
           <h1 className="mb-8 text-4xl text-primary">Discover Problems</h1>
           <div className="px-2.5">
             {/* Tier's NavMenu */}
-            <ul className="flex space-x-8 py-2">
+            <ul className="flex space-x-8 py-4">
               {tiers.map((tier) => (
                 <NavMenuItem
                   key={tier}
@@ -43,9 +43,9 @@ export default function Home() {
                 />
               ))}
             </ul>
-            <div className="flex h-12 items-center space-x-8 pb-4">
+            <div className="flex h-8 items-center space-x-8">
               <Button variant="primary">Filters</Button>
-              <Separator className="w-0.5 bg-primary-weak" orientation="vertical" />
+              <Separator className="w-[2px] bg-primary-weak" orientation="vertical" />
               {/* Subject filter */}
               <div className="">
                 <SubjectFilter
@@ -62,7 +62,9 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <QuestionList tier={selectedTier} subjects={selectedSubjects} />
+          <div className="pt-8">
+            <QuestionList tier={selectedTier} subjects={selectedSubjects} />
+          </div>{' '}
         </main>
       )}
     </div>

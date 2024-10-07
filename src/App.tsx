@@ -1,16 +1,16 @@
-import { NavBar } from '@/components/ui-custom/navBar'
+import About from '@/pages/About'
 import Home from '@/pages/Home'
 import Question from '@/pages/Question'
-import { useState } from 'react' // Import useState
 import { Route, Routes } from 'react-router-dom'
-import About from './pages/About'
+import { NavBar } from './components/ui-custom/navBar'
+import { useTheme } from './hooks/useTheme'
 
 function App() {
-  const [isDarkMode, setIsDarkMode] = useState(false) // State for dark mode
+  const { theme } = useTheme()
 
   return (
-    <div className={`flex min-h-screen flex-col ${isDarkMode ? 'dark bg-background' : 'bg-light'}`}>
-      <NavBar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+    <div className={`${theme}`}>
+      <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

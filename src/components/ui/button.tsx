@@ -10,7 +10,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'text-md font-medium hover:bg-primary/90 bg-primary-weak text-primary hover:text-primary-strong',
+          'text-md font-medium hover:bg-primary/90 bg-primary-weak dark:bg-primary-ghost text-primary hover:text-primary-strong',
         primaryOutline:
           'text-md font-medium hover:bg-primary/90 border-[1px] dark:border-primary-ghost border-primary-weak bg-background text-primary hover:text-primary-strong',
         accent: 'inline-flex items-center justify-center gap-2.5 bg-background text-white',

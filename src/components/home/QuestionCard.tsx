@@ -31,13 +31,13 @@ export function QuestionCard({ question }: QuestionCardProps) {
             <RadialChart wrongPercentage={question.wrongPercentage} scale={0.6} />
           </div>
           <Separator className="h-0.5 bg-primary-weak" orientation="horizontal" />
-          <div className="relative mb-4">
-            <img
-              src={question.imageUrl}
-              alt={`Question ${question.id}`}
-              className="h-48 w-full object-contain blur-sm filter"
-            />
-          </div>
+          {/* <div className=""> */}
+          <img
+            src={question.imageUrl}
+            alt={`Question ${question.id}`}
+            className="h-52 w-full object-contain pt-4 blur-sm"
+          />
+          {/* </div> */}
         </Card>
       </Link>
       <div className="flex items-center justify-between px-4 text-sm text-primary-strong">

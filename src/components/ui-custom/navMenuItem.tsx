@@ -24,8 +24,8 @@ export function NavMenuItem({ text, type, selected, clickFn }: NavMenuItemProps)
       <div
         className={`${
           selected
-            ? 'border-primary text-primary border-b-2 pb-[6px] font-medium'
-            : 'hover:text-primary font-medium text-primary-strong'
+            ? 'border-b-2 border-primary pb-[2px] font-medium text-primary'
+            : 'font-medium text-primary-strong hover:text-primary'
         }`}
       >
         {text}

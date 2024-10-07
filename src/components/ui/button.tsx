@@ -13,7 +13,7 @@ const buttonVariants = cva(
           'text-sm font-normal hover:bg-primary/90 bg-primary-ghost text-primary hover:text-primary-strong',
         primaryOutline:
           'text-sm font-normal hover:bg-primary/90 border-[2px] border-primary-weak bg-primary-foundation text-primary hover:text-primary-strong',
-        accent: 'inline-flex items-center justify-center  gap-2.5 bg-accent-background  text-white',
+        accent: 'inline-flex items-center justify-center gap-2.5 bg-accent-background  text-white',
         accentOutline:
           'text-sm font-normal inline-flex items-center justify-center gap-2.5 border-2 border-accent bg-white text-accent',
         // secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',

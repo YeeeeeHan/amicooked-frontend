@@ -183,6 +183,14 @@ export default {
         // font-extrabold = 800;
         // font-black = 900;
       },
+      animation: {
+        shimmer: 'shimmer 2s infinite',
+      },
+      keyframes: {
+        shimmer: {
+          '100%': { transform: 'translateX(100%)' },
+        },
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

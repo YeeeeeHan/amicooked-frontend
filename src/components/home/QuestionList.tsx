@@ -1,4 +1,5 @@
 import { QuestionCard } from '@/components/home/QuestionCard'
+import { SkeletonQuestionList } from '@/components/skeleton/SkeletonQuestionList' // Import the skeleton
 import { useQuestions } from '@/hooks/useQuestions'
 
 interface QuestionListProps {
@@ -9,7 +10,7 @@ interface QuestionListProps {
 export function QuestionList({ tier, subjects }: QuestionListProps) {
   const { questions, isLoading, error } = useQuestions(tier, subjects)
 
-  if (isLoading) return <div>Loading...</div>
+  if (isLoading) return <SkeletonQuestionList /> // Use the skeleton here
   if (error) return <div>Error: {error.message}</div>
 
   return (

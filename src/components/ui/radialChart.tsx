@@ -30,7 +30,6 @@ export function RadialChart({ wrongPercentage, scale }: RadialChartProps) {
       <RadialBarChart
         data={data}
         startAngle={90}
-        // end angle should be calculated based on the wrongPercentage
         endAngle={90 + wrongPercentage * 3.6}
         innerRadius={40 * scale}
         outerRadius={62 * scale}
@@ -52,11 +51,15 @@ export function RadialChart({ wrongPercentage, scale }: RadialChartProps) {
                     <tspan
                       x={viewBox.cx! - 5}
                       y={viewBox.cy}
-                      className="fill-foreground text-xl font-bold"
+                      className="fill-foreground text-lg font-semibold"
                     >
                       {data[0].wrongPercentage.toLocaleString()}
                     </tspan>
-                    <tspan x={viewBox.cx! + 15} y={viewBox.cy} className="fill-foreground text-sm">
+                    <tspan
+                      x={viewBox.cx! + 13}
+                      y={viewBox.cy}
+                      className="fill-foreground text-sm font-semibold"
+                    >
                       %
                     </tspan>
                   </text>

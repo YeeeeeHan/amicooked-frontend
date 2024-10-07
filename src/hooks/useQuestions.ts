@@ -145,7 +145,7 @@ export function useQuestions(tier: string, subjects: string[]) {
       ]
       setQuestions(mockQuestions)
       setIsLoading(false)
-    }, 1000)
+    }, 3000)
   }, [tier, subjects])
 
   return { questions, isLoading, error }

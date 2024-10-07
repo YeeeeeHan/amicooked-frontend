@@ -10,16 +10,17 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'hover:bg-primary/90 border border-primary-strong bg-primary-ghost text-primary hover:text-primary-strong',
+          'text-sm font-normal hover:bg-primary/90 border bg-primary-ghost text-primary hover:text-primary-strong',
         primaryOutline:
-          'hover:bg-primary/90 border border-primary-strong bg-primary-foundation text-primary hover:text-primary-strong',
+          'text-sm font-normal hover:bg-primary/90 border-[2px] border-primary-weak bg-primary-foundation text-primary hover:text-primary-strong',
         accent: 'inline-flex items-center justify-center  gap-2.5 bg-accent-background  text-white',
         accentOutline:
-          'inline-flex items-center justify-center gap-2.5 border-2 border-accent bg-white text-accent',
+          'text-sm font-normal inline-flex items-center justify-center gap-2.5 border-2 border-accent bg-white text-accent',
         // secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        ghost: 'text-primary-strong hover:text-primary',
-        link: 'text-primary underline-offset-4 hover:underline',
-        destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+        ghost: 'text-sm font-normal text-primary-strong hover:text-primary',
+        link: 'text-sm font-normal text-primary underline-offset-4 hover:underline',
+        destructive:
+          'text-sm font-normal bg-destructive text-destructive-foreground hover:bg-destructive/90',
       },
       size: {
         default: 'h-9 rounded-full px-4 py-2',

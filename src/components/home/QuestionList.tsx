@@ -14,7 +14,7 @@ export function QuestionList({ tier, subjects }: QuestionListProps) {
   if (error) return <div>Error: {error.message}</div>
 
   return (
-    <div className="grid grid-cols-1 gap-8 py-4 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-8 py-4 md:grid-cols-2 xl:grid-cols-3">
       {questions.map((question) => (
         <QuestionCard key={question.id} question={question} />
       ))}

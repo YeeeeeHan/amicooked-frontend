@@ -3,7 +3,7 @@ import { Separator } from '@radix-ui/react-separator'
 
 export function SkeletonQuestionList() {
   return (
-    <div className="grid grid-cols-1 gap-8 py-4 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid grid-cols-1 gap-8 py-4 md:grid-cols-2 xl:grid-cols-3">
       {Array.from({ length: 6 }).map((_, index) => (
         <div key={index} className="flex flex-col space-y-4">
           <Card className="before:animate-shimmer relative min-h-80 overflow-hidden bg-card-background before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-black/20 before:to-transparent dark:before:via-white/20">

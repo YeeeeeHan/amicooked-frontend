@@ -30,7 +30,7 @@ export function QuestionCard({ question }: QuestionCardProps) {
             </div>
             <RadialChart wrongPercentage={question.wrongPercentage} scale={0.6} />
           </div>
-          <Separator className="h-0.5 bg-primary-weak" orientation="horizontal" />
+          <Separator className="h-0.5 bg-primary-ghost" orientation="horizontal" />
           {/* <div className=""> */}
           <img
             src={question.imageUrl}

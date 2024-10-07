@@ -9,7 +9,7 @@ function App() {
   const { theme } = useTheme()
 
   return (
-    <div className={`${theme}`}>
+    <div className={`relative ${theme}`}>
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />

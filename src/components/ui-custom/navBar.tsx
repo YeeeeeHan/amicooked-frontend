@@ -9,7 +9,7 @@ export function NavBar() {
   const { theme, toggleTheme } = useTheme()
 
   return (
-    <div className="flex items-center justify-between bg-background px-16 pt-3">
+    <div className="sticky top-0 z-50 flex items-center justify-between border-b-2 border-primary-weak bg-background px-16 pt-3 dark:border-primary-ghost">
       <div className="flex h-14 items-center space-x-8">
         <div>
           <img src={Logo} />

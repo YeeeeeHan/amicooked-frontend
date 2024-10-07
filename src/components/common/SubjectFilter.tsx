@@ -8,7 +8,7 @@ interface SubjectFilterProps {
 
 export function SubjectFilter({ subjects, selectedSubjects, onSubjectToggle }: SubjectFilterProps) {
   return (
-    <div className="ml-4 flex flex-wrap gap-4">
+    <div className="ml-4 flex flex-wrap gap-1">
       {subjects.map((subject) => (
         <Button
           key={subject}

@@ -10,17 +10,17 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          'text-sm font-normal hover:bg-primary/90 bg-primary-ghost text-primary hover:text-primary-strong',
+          'text-md font-medium hover:bg-primary/90 bg-primary-weak text-primary hover:text-primary-strong',
         primaryOutline:
-          'text-sm font-normal hover:bg-primary/90 border-[2px] border-primary-weak bg-primary-foundation text-primary hover:text-primary-strong',
+          'text-md font-medium hover:bg-primary/90 border-[1px] dark:border-primary-ghost border-primary-weak bg-background text-primary hover:text-primary-strong',
         accent: 'inline-flex items-center justify-center gap-2.5 bg-accent-background  text-white',
         accentOutline:
-          'text-sm font-normal inline-flex items-center justify-center gap-2.5 border-2 border-accent bg-white text-accent',
+          'text-md font-medium inline-flex items-center justify-center gap-2.5 border-2 border-accent bg-white text-accent',
         // secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        ghost: 'text-sm font-normal text-primary-strong hover:text-primary',
-        link: 'text-sm font-normal text-primary underline-offset-4 hover:underline',
+        ghost: 'text-md font-medium text-primary-strong hover:text-primary',
+        link: 'text-md font-medium text-primary underline-offset-4 hover:underline',
         destructive:
-          'text-sm font-normal bg-destructive text-destructive-foreground hover:bg-destructive/90',
+          'text-md font-medium bg-destructive text-destructive-foreground hover:bg-destructive/90',
       },
       size: {
         default: 'h-9 rounded-full px-4 py-2',

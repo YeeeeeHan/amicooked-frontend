@@ -29,9 +29,12 @@ export default function Home() {
             />
           ))}
         </ul>
-        <div className="flex h-8 items-center space-x-4">
+        <div className="flex h-6 items-center space-x-4">
           <Button variant="primary">Filters</Button>
-          <Separator className="w-[2px] bg-primary-weak" orientation="vertical" />
+          <Separator
+            className="w-[1.5px] bg-primary-weak dark:bg-primary-ghost"
+            orientation="vertical"
+          />
           {/* Subject filter */}
           <div className="">
             <SubjectFilter
@@ -48,7 +51,7 @@ export default function Home() {
       </div>
       <div className="pt-8">
         <QuestionList tier={selectedTier} subjects={selectedSubjects} />
-      </div>{' '}
+      </div>
     </main>
   )
 }

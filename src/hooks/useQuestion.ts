@@ -15,11 +15,14 @@ export function useQuestion(questionId: number) {
       const mockQuestion: Question = {
         id: questionId,
         tier: 'Secondary',
-        school: { name: 'Bukit Timah Primary School', logo: '/path-to-logo.png' },
+        school: {
+          name: 'Ang Mo Kio Primary School',
+          logo: '/src/assets/schools/ang-mo-kio-primary-school.jpg',
+        },
         examDetails: '2022 Sec 4 Additional Maths Prelims',
         wrongPercentage: 34,
-        imageUrl: '/path-to-question-image.jpg',
-        author: { name: 'John Smith', avatar: '/path-to-avatar.jpg' },
+        imageUrl: '/src/assets/questions/question2.png',
+        author: { name: 'John Smith', avatar: '/src/assets/avatars/avatar1.svg' },
         attempts: 1224,
         likes: 10,
         subject: 'Math',

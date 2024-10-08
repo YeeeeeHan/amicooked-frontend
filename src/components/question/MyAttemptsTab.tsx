@@ -1,4 +1,5 @@
 import { Question } from '@/types'
+import { BellCurve } from '../bellcurveChart'
 
 interface MyAttemptsTabProps {
   question: Question
@@ -14,6 +15,9 @@ export function MyAttemptsTab({ question }: MyAttemptsTabProps) {
 
   return (
     <div>
+      <div className="pt-4">
+        <BellCurve />
+      </div>
       <table className="w-full">
         <thead>
           <tr>

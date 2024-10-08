@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useQuestion } from '@/hooks/useQuestion'
+import { Separator } from '@radix-ui/react-separator'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
@@ -55,12 +56,12 @@ export default function Question() {
       </div>
 
       <div className="flex-1 px-16 py-6">
-        <Card className="h-full bg-card-background p-6">
-          <div className="flex gap-6">
-            <div className="w-1/2">
-              <div className="px-12 pt-8">
+        <Card className="h-full bg-card-background">
+          <div className="flex gap-3">
+            <div className="w-full">
+              <div className="px-8 pt-8">
                 <Tabs defaultValue={QuestionPageTabs.MY_ATTEMPTS}>
-                  <TabsList>
+                  <TabsList className="mx-4">
                     <TabsTrigger value={QuestionPageTabs.MY_ATTEMPTS}>{QuestionPageTabs.MY_ATTEMPTS}</TabsTrigger>
                     <TabsTrigger value={QuestionPageTabs.STATISTICS}>{QuestionPageTabs.STATISTICS}</TabsTrigger>
                     <TabsTrigger value={QuestionPageTabs.SOLUTIONS}>{QuestionPageTabs.SOLUTIONS}</TabsTrigger>
@@ -81,7 +82,8 @@ export default function Question() {
                 </Tabs>
               </div>
             </div>
-            <div className="w-1/2">
+            <Separator className="w-1 bg-primary-weak dark:bg-primary-ghost" orientation="vertical" />
+            <div className="w-full">
               <Card className="p-6">
                 <div className="mb-4 flex items-center justify-between">
                   <h2 className="text-2xl font-semibold">Question {id}</h2>

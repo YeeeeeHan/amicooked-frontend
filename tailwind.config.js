@@ -3,12 +3,7 @@
 // Configuration reference for core plugins: https://tailwindcss.com/docs/theme#configuration-reference
 export default {
   darkMode: ['class'],
-  content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-  ],
+  content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
   theme: {
     container: {
       center: true,
@@ -83,11 +78,11 @@ export default {
       },
       fontSize: {
         xs: [
-          '0.75rem' /* 12px */,
+          '0.625rem' /* 10px */,
           {
-            lineHeight: '1rem' /* 16px */,
+            lineHeight: '0.6rem' /* 9.5px */,
             // letterSpacing: '-0.01em',
-            // fontWeight: '400',
+            fontWeight: '300',
           },
         ],
         // subtle
@@ -107,12 +102,13 @@ export default {
             // fontWeight: '400',
           },
         ],
+        // Edited
         lg: [
           '1.125rem' /* 18px */,
           {
             lineHeight: '1.75rem' /* 28px */,
-            // letterSpacing: '-0.01em',
-            // fontWeight: '400',
+            letterSpacing: '0.01em',
+            fontWeight: '600',
           },
         ],
         xl: [

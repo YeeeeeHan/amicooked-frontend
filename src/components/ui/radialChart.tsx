@@ -48,18 +48,10 @@ export function RadialChart({ wrongPercentage, scale }: RadialChartProps) {
               if (viewBox && 'cx' in viewBox && 'cy' in viewBox) {
                 return (
                   <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle" dominantBaseline="middle">
-                    <tspan
-                      x={viewBox.cx! - 5}
-                      y={viewBox.cy}
-                      className="fill-foreground text-lg font-semibold"
-                    >
+                    <tspan x={viewBox.cx! - 5} y={viewBox.cy} className="fill-foreground text-lg font-semibold">
                       {data[0].wrongPercentage.toLocaleString()}
                     </tspan>
-                    <tspan
-                      x={viewBox.cx! + 13}
-                      y={viewBox.cy}
-                      className="fill-foreground text-sm font-semibold"
-                    >
+                    <tspan x={viewBox.cx! + 13} y={viewBox.cy} className="fill-foreground text-sm font-semibold">
                       %
                     </tspan>
                   </text>

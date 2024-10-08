@@ -5,6 +5,7 @@ import { SolutionsTab } from '@/components/question/SolutionsTab'
 import { StatisticsTab } from '@/components/question/StatisticsTab'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+import { RadialChart } from '@/components/ui/radialChart'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useQuestion } from '@/hooks/useQuestion'
 import { Separator } from '@radix-ui/react-separator'
@@ -57,16 +58,19 @@ export default function Question() {
 
       <div className="flex-1 px-16 py-6">
         <Card className="h-full bg-card-background">
-          <div className="flex gap-3">
-            <div className="w-full">
-              <div className="px-8 pt-8">
+          <div className="flex">
+            <div className="w-full px-8 pt-4">
+              <div className="flex flex-row">
                 <Tabs defaultValue={QuestionPageTabs.MY_ATTEMPTS}>
-                  <TabsList className="mx-4">
-                    <TabsTrigger value={QuestionPageTabs.MY_ATTEMPTS}>{QuestionPageTabs.MY_ATTEMPTS}</TabsTrigger>
-                    <TabsTrigger value={QuestionPageTabs.STATISTICS}>{QuestionPageTabs.STATISTICS}</TabsTrigger>
-                    <TabsTrigger value={QuestionPageTabs.SOLUTIONS}>{QuestionPageTabs.SOLUTIONS}</TabsTrigger>
-                    <TabsTrigger value={QuestionPageTabs.DISCUSSIONS}>{QuestionPageTabs.DISCUSSIONS}</TabsTrigger>
-                  </TabsList>
+                  <div className="flex flex-row items-center justify-between">
+                    <TabsList className="mx-4">
+                      <TabsTrigger value={QuestionPageTabs.MY_ATTEMPTS}>{QuestionPageTabs.MY_ATTEMPTS}</TabsTrigger>
+                      <TabsTrigger value={QuestionPageTabs.STATISTICS}>{QuestionPageTabs.STATISTICS}</TabsTrigger>
+                      <TabsTrigger value={QuestionPageTabs.SOLUTIONS}>{QuestionPageTabs.SOLUTIONS}</TabsTrigger>
+                      <TabsTrigger value={QuestionPageTabs.DISCUSSIONS}>{QuestionPageTabs.DISCUSSIONS}</TabsTrigger>
+                    </TabsList>
+                    <RadialChart wrongPercentage={question.wrongPercentage} scale={0.6} />
+                  </div>
                   <TabsContent value={QuestionPageTabs.MY_ATTEMPTS}>
                     <MyAttemptsTab question={question} />
                   </TabsContent>

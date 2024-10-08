@@ -60,8 +60,8 @@ export default function Question() {
         <Card className="h-full bg-card-background">
           <div className="flex">
             <div className="w-full px-8 pt-4">
-              <div className="flex flex-row">
-                <Tabs defaultValue={QuestionPageTabs.MY_ATTEMPTS}>
+              <div className="flex">
+                <Tabs className="w-full" defaultValue={QuestionPageTabs.MY_ATTEMPTS}>
                   <div className="flex flex-row items-center justify-between">
                     <TabsList className="mx-4">
                       <TabsTrigger value={QuestionPageTabs.MY_ATTEMPTS}>{QuestionPageTabs.MY_ATTEMPTS}</TabsTrigger>

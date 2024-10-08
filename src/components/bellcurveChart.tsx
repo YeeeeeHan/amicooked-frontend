@@ -27,7 +27,7 @@ export function BellCurve({ question }: BellCurveProps) {
     <Card className="rounded-lg bg-background shadow-sm">
       {/* <div className="flex flex-col space-y-0.5 px-6 py-4"> */}
       <div className="flex flex-row justify-between px-6 py-4">
-        <div className="flex flex-col space-y-0.5">
+        <div className="flex flex-col space-y-1">
           <div className="text-lg">Bell Curve of Performance</div>
           <div className="text-xs text-primary-strong">
             Distribution of how quickly and accurately other students answered the question

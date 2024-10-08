@@ -22,6 +22,7 @@
   --neutral-empty: hsl(0, 0%, 98%);
   --neutral-foundation: hsl(0, 0%, 100%);
 
+  --right-bright: hsl(110, 95%, 60%);
   --right-strong: hsl(134, 30%, 40%);
   --right-weak: hsl(137, 84%, 70%);
   --right-ghost: hsl(130, 76%, 94%);

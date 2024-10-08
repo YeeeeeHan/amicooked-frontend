@@ -1,5 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card'
 import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart'
+import { Question } from '@/types'
 import { Area, AreaChart, CartesianGrid, XAxis } from 'recharts'
 
 export const description = 'A simple area chart'
@@ -17,14 +18,22 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function BellCurve() {
+export interface BellCurveProps {
+  question: Question
+}
+
+export function BellCurve({ question }: BellCurveProps) {
   return (
     <Card className="rounded-lg bg-background shadow-sm">
-      <div className="flex flex-col space-y-0.5 px-6 py-4">
-        <div className="text-lg">Bell Curve of Performance</div>
-        <div className="text-xs text-primary-strong">
-          Distribution of how quickly and accurately other students answered the question
+      {/* <div className="flex flex-col space-y-0.5 px-6 py-4"> */}
+      <div className="flex flex-row justify-between px-6 py-4">
+        <div className="flex flex-col space-y-0.5">
+          <div className="text-lg">Bell Curve of Performance</div>
+          <div className="text-xs text-primary-strong">
+            Distribution of how quickly and accurately other students answered the question
+          </div>
         </div>
+        <div>Drop down menu</div>
       </div>
       <CardContent className="py-4">
         <ChartContainer config={chartConfig}>
@@ -60,9 +69,9 @@ export function BellCurve() {
               dataKey="height"
               type="natural"
               // Gradient
-              fill="var(--right-strong)"
+              fill="var(--right-weak)"
               fillOpacity={0.4}
-              stroke="var(--right-normal)"
+              stroke="var(--right-strong)"
             />
           </AreaChart>
         </ChartContainer>

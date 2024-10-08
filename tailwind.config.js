@@ -50,6 +50,7 @@ export default {
           background: 'var(--destructive-weak)',
         },
         right: {
+          bright: 'var(--right-bright)',
           strong: 'var(--right-strong)',
           weak: 'var(--right-weak)',
           ghost: 'var(--right-ghost)',

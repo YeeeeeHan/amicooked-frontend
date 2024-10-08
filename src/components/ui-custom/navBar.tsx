@@ -9,10 +9,13 @@ export function NavBar() {
   const { theme, toggleTheme } = useTheme()
 
   return (
-    <div className="sticky top-0 z-50 flex items-center justify-between border-b-2 border-primary-weak bg-background px-16 py-3 dark:border-primary-ghost">
+    // border-b-2 border-primary-weak
+    <div className="sticky top-0 z-50 flex items-center justify-between bg-background px-16 py-3 dark:border-primary-ghost">
       <div className="flex h-14 items-center space-x-8">
         <div>
-          <img src={Logo} />
+          <Link to="/">
+            <img src={Logo} alt="Logo" />
+          </Link>
         </div>
         <Link to="/" className="text-md font-semibold text-primary">
           Problems

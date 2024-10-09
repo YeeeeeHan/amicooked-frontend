@@ -32,9 +32,6 @@ export default function Question() {
   const [isStarted, setIsStarted] = useState(false)
   const { question, isLoading, error } = useQuestion(Number(id))
 
-  const blurredImageUrl = question?.imageUrl
-  const fullImageUrl = question?.imageUrl
-
   const handleStart = () => {
     setIsStarted(true)
     const interval = setInterval(() => {
@@ -98,7 +95,7 @@ export default function Question() {
               <div className="relative flex flex-1 flex-col">
                 <div className={`flex flex-1 flex-col ${isStarted ? '' : 'blur-sm filter'}`}>
                   <img
-                    src={isStarted ? fullImageUrl : blurredImageUrl}
+                    src={isStarted ? question.imageUrl : question.blurredImageUrl}
                     alt={`Question ${question.id}`}
                     className="mb-4 w-full rounded-lg object-contain"
                   />

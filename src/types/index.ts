@@ -3,6 +3,7 @@ export interface Question {
   tier: string
   subject: string
   imageUrl: string
+  blurredImageUrl: string
   options: string[]
   totalAttempts: number
   correctAnswers: number

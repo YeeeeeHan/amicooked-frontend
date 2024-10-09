@@ -22,12 +22,13 @@
   --neutral-empty: hsl(0, 0%, 98%);
   --neutral-foundation: hsl(0, 0%, 100%);
 
-  --right-bright: hsl(110, 95%, 60%);
+  --right-bright: hsl(142, 71%, 45%);
   --right-strong: hsl(134, 30%, 40%);
   --right-weak: hsl(137, 84%, 70%);
   --right-ghost: hsl(130, 76%, 94%);
-  --wrong-bright: hsl(351, 95%, 60%);
-  --wrong-strong:  hsl(0, 30%, 40%);
+
+  --wrong-bright: hsl(0, 84%, 60%);
+  --wrong-strong:  hsl(0, 32%, 50%);
   --wrong-weak: hsl(0, 100%, 79%);
   --wrong-ghost: hsl(0, 76%, 94%);
 
@@ -68,13 +69,15 @@
   --neutral-empty: hsl(0, 0%, 7%);
   --neutral-foundation: hsl(0, 0%, 12%);
 
-  --right-strong: hsl(135, 50%, 67%);
+  --right-bright: hsl(110, 95%, 60%);
+  --right-strong: hsl(135, 14%, 86%);
   --right-weak: hsl(137, 84%, 70%);
-  --right-ghost: hsl(130, 76%, 94%);
+  --right-ghost: hsl(130, 20%, 20%);
+
   --wrong-bright: hsl(351, 95%, 60%);
   --wrong-strong:  hsl(0, 14%, 86%);
   --wrong-weak: hsl(0, 100%, 79%);
-  --wrong-ghost: hsl(0, 76%, 94%);
+  --wrong-ghost: hsl(0, 29%, 20%);
 
   /* Abstracted colors */
   --border: hsl(12 6.5% 15.1%);

@@ -8,9 +8,10 @@ import { Card } from '@/components/ui/card'
 import { RadialChart } from '@/components/ui/radialChart'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { THROTTLING_TIME } from '@/globals/variables'
+import { useAttempts } from '@/hooks/useAttempts'
 import { useQuestion } from '@/hooks/useQuestion'
 import { Separator } from '@radix-ui/react-separator'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 export enum QuestionPageTabs {
@@ -30,19 +31,47 @@ export default function Question() {
   const { id } = useParams<{ id: string }>()
   const [timer, setTimer] = useState<number>(0)
   const [isStarted, setIsStarted] = useState(false)
+  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
+  const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null)
+  const [mostRecentAttemptId, setMostRecentAttemptId] = useState<number | null>(null)
   const { question, isLoading, error } = useQuestion(Number(id))
-
+  const { attempts, isLoading: isAttemptsLoading, error: attemptsError, addAttempt } = useAttempts(Number(id))
   const handleStart = () => {
     setIsStarted(true)
     const interval = setInterval(() => {
       setTimer((prevTimer) => prevTimer + 1)
     }, THROTTLING_TIME)
-    return () => clearInterval(interval)
+    setIntervalId(interval)
   }
+
+  const handleAnswerSelect = (index: number) => {
+    if (!isStarted || selectedAnswer !== null) return
+
+    setSelectedAnswer(index)
+    const isCorrect = index === question?.correctAnswer
+    const newAttempt = {
+      id: attempts.length + 1,
+      time: timer,
+      ranking: Math.floor(Math.random() * 100) + 1, // Mock ranking for now
+      isCorrect,
+      selectedOption: index,
+    }
+    addAttempt(newAttempt)
+    setMostRecentAttemptId(newAttempt.id)
+  }
+
+  useEffect(() => {
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId)
+      }
+    }
+  }, [intervalId])
 
   if (isLoading) return <div className="text-primary">Loading...</div>
   if (error) return <div>Error: {error.message}</div>
   if (!question) return <div>Question not found</div>
+  if (!attempts) return <div>Attempts not found</div>
 
   const breadcrumbProps = {
     page: { label: `Question ${id}` },
@@ -70,7 +99,7 @@ export default function Question() {
                     <RadialChart wrongPercentage={question.wrongPercentage} scale={0.6} />
                   </div>
                   <TabsContent value={QuestionPageTabs.MY_ATTEMPTS}>
-                    <MyAttemptsTab question={question} />
+                    <MyAttemptsTab question={question} attempts={attempts} mostRecentAttemptId={mostRecentAttemptId} />
                   </TabsContent>
                   <TabsContent value={QuestionPageTabs.STATISTICS}>
                     <StatisticsTab question={question} />
@@ -103,8 +132,17 @@ export default function Question() {
                     {question.options.map((option, index) => (
                       <button
                         key={index}
-                        className="w-full rounded-lg border border-primary-ghost p-3 text-left hover:bg-primary-ghost"
-                        disabled={!isStarted}
+                        className={`w-full rounded-lg border border-primary-weak p-3 text-left ${
+                          selectedAnswer !== null
+                            ? index === question.correctAnswer
+                              ? 'bg-right-ghost text-right-strong'
+                              : index === selectedAnswer
+                                ? 'bg-wrong-ghost text-wrong-strong'
+                                : ''
+                            : 'hover:bg-primary-ghost'
+                        }`}
+                        disabled={!isStarted || selectedAnswer !== null}
+                        onClick={() => handleAnswerSelect(index)}
                       >
                         {option}
                       </button>

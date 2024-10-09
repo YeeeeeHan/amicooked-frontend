@@ -6,6 +6,7 @@ export interface Question {
   blurredImageUrl: string
   options: string[]
   totalAttempts: number
+  correctAnswer: number
   correctAnswers: number
   wrongAnswers: number
   averageTime: number
@@ -25,4 +26,10 @@ export interface Question {
   likes: number
 }
 
-// Add more types as needed
+export interface Attempt {
+  id: number
+  time: number
+  ranking: number
+  isCorrect: boolean
+  selectedOption: number
+}

@@ -1,4 +1,4 @@
-import { mockQuestions } from '@/assets/questions/questions'
+import { mockQuestions } from '@/assets/mockApi/questions'
 import { THROTTLING_TIME } from '@/globals/variables'
 import { Question } from '@/types'
 import { useEffect, useState } from 'react'

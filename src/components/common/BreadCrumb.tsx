@@ -21,13 +21,13 @@ interface BreadcrumbProps {
   page: BreadcrumbPage
 }
 
-export function CustomBreadcrumb({ links, page }: BreadcrumbProps) {
+export function CustomBreadcrumb({ links: links, page }: BreadcrumbProps) {
   return (
     <Breadcrumb>
       <BreadcrumbList className="stroke-primary-strong text-primary-strong">
         {links.map((item, index) => (
-          <div className="inline-flex items-center gap-1.5">
-            <BreadcrumbItem key={index}>
+          <div className="inline-flex items-center gap-1.5" key={index}>
+            <BreadcrumbItem>
               <BreadcrumbLink href={item.href}>{item.label}</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />

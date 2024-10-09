@@ -35,7 +35,7 @@ export function MyAttemptsTab({ question }: MyAttemptsTabProps) {
           <div className="text-xs text-gray-500">Average time</div>
           <div className="text-lg font-semibold">30.2s</div>
         </div>
-        <div className="border-r-2 border-primary-ghost">
+        <div className="border-primary-ghost">
           <div className="text-xs text-gray-500">Fastest time</div>
           <div className="text-lg font-semibold">5s</div>
         </div>

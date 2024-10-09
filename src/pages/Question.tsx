@@ -32,6 +32,9 @@ export default function Question() {
   const [isStarted, setIsStarted] = useState(false)
   const { question, isLoading, error } = useQuestion(id!)
 
+  const blurredImageUrl = question?.imageUrl
+  const fullImageUrl = question?.imageUrl
+
   const handleStart = () => {
     setIsStarted(true)
     // Start the timer
@@ -51,17 +54,16 @@ export default function Question() {
   }
 
   return (
-    <div className="flex h-screen flex-col">
+    <div className="flex min-h-screen flex-col">
       <div className="px-16 py-6">
         <CustomBreadcrumb links={breadcrumbProps.links} page={breadcrumbProps.page} />
       </div>
-
-      <div className="flex-1 px-16 py-6">
-        <Card className="h-full bg-card-background">
-          <div className="flex">
-            <div className="w-full px-8 pt-4">
-              <div className="flex">
-                <Tabs className="w-full" defaultValue={QuestionPageTabs.MY_ATTEMPTS}>
+      <div className="h-full flex-1 px-16 pb-12">
+        <Card className="flex h-full bg-card-background">
+          <div className="flex h-full w-full">
+            <div className="w-1/2 p-8">
+              <div className="flex h-full flex-col">
+                <Tabs className="flex-1" defaultValue={QuestionPageTabs.MY_ATTEMPTS}>
                   <div className="flex flex-row items-center justify-between">
                     <TabsList className="mx-4">
                       <TabsTrigger value={QuestionPageTabs.MY_ATTEMPTS}>{QuestionPageTabs.MY_ATTEMPTS}</TabsTrigger>
@@ -86,49 +88,51 @@ export default function Question() {
                 </Tabs>
               </div>
             </div>
-            <Separator className="w-1 bg-primary-weak dark:bg-primary-ghost" orientation="vertical" />
-            <div className="w-full">
-              <Card className="p-6">
-                <div className="mb-4 flex items-center justify-between">
-                  <h2 className="text-2xl font-semibold">Question {id}</h2>
-                  <div className="font-mono text-xl">
-                    {Math.floor(timer / 60)}m {timer % 60}s
+            <Separator className="h-auto w-[2px] bg-primary-weak dark:bg-primary-ghost" orientation="vertical" />
+            <div className="flex w-1/2 flex-col space-y-6 p-8">
+              <div className="mb-4 flex items-center justify-between">
+                <div className="text-sm text-primary-strong">Question {id}</div>
+                <div className="text-sm text-primary-strong">
+                  {Math.floor(timer / 60)}m {timer % 60}s
+                </div>
+              </div>
+              <div className="relative flex flex-1 flex-col">
+                <div className={`flex flex-1 flex-col ${isStarted ? '' : 'blur-sm filter'}`}>
+                  <img
+                    src={isStarted ? fullImageUrl : blurredImageUrl}
+                    alt={`Question ${question.id}`}
+                    className="mb-4 w-full rounded-lg object-contain"
+                  />
+                  <div className="flex flex-col space-y-2">
+                    {question.options.map((option, index) => (
+                      <button
+                        key={index}
+                        className="w-full rounded-lg border border-primary-ghost p-3 text-left hover:bg-primary-ghost"
+                        disabled={!isStarted}
+                      >
+                        {option}
+                      </button>
+                    ))}
                   </div>
                 </div>
-                {!isStarted ? (
-                  <div className="rounded-lg bg-gray-50 p-6 text-center">
-                    <h3 className="mb-2 text-lg font-semibold">Ready to Start the Question?</h3>
-                    <p className="mb-4 text-sm text-gray-600">
-                      Once you click "Start," the timer will begin, and you will only have one attempt to complete the
-                      question. Subsequent attempts will not be counted to this question's statistics.
-                    </p>
-                    <Button onClick={handleStart} className="bg-primary text-white">
-                      Start
-                    </Button>
-                  </div>
-                ) : (
-                  <div>
-                    <img
-                      src={question.imageUrl}
-                      alt={`Question ${question.id}`}
-                      className="mb-4 w-full rounded-lg object-contain"
-                    />
-                    <div className="space-y-2">
-                      {question.options.map((option, index) => (
-                        <button
-                          key={index}
-                          className="w-full rounded border p-3 text-left hover:bg-gray-100"
-                          onClick={() => {
-                            // Handle answer selection
-                          }}
-                        >
-                          {option}
-                        </button>
-                      ))}
-                    </div>
+                {!isStarted && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <Card className="max-w-md space-y-3 rounded-xl bg-card-background p-6 shadow-lg dark:bg-primary-weak">
+                      <div className="mb-2 text-left text-lg font-semibold">Ready to Start the Question?</div>
+                      <p className="mb-4 text-left text-sm text-primary-heavy">
+                        Once you click "Start," the timer will begin, and you will only have{' '}
+                        <span className="text-sm font-bold text-primary dark:text-primary">one attempt</span> to
+                        complete the question. Subsequent attempts will not be counted to this question's statistics.
+                      </p>
+                      <div className="flex flex-row-reverse pt-3">
+                        <Button onClick={handleStart} variant="destructive">
+                          Start
+                        </Button>
+                      </div>
+                    </Card>
                   </div>
                 )}
-              </Card>
+              </div>
             </div>
           </div>
         </Card>

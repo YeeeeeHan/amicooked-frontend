@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { RadialChart } from '@/components/ui/radialChart'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { THROTTLING_TIME } from '@/globals/variables'
 import { useQuestion } from '@/hooks/useQuestion'
 import { Separator } from '@radix-ui/react-separator'
 import { useState } from 'react'
@@ -27,20 +28,18 @@ export const tabs = [
 
 export default function Question() {
   const { id } = useParams<{ id: string }>()
-  const [activeTab, setActiveTab] = useState<QuestionPageTabs>(QuestionPageTabs.MY_ATTEMPTS)
   const [timer, setTimer] = useState<number>(0)
   const [isStarted, setIsStarted] = useState(false)
-  const { question, isLoading, error } = useQuestion(id!)
+  const { question, isLoading, error } = useQuestion(Number(id))
 
   const blurredImageUrl = question?.imageUrl
   const fullImageUrl = question?.imageUrl
 
   const handleStart = () => {
     setIsStarted(true)
-    // Start the timer
     const interval = setInterval(() => {
       setTimer((prevTimer) => prevTimer + 1)
-    }, 1000)
+    }, THROTTLING_TIME)
     return () => clearInterval(interval)
   }
 
@@ -116,7 +115,7 @@ export default function Question() {
                   </div>
                 </div>
                 {!isStarted && (
-                  <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-start justify-center pt-20">
                     <Card className="max-w-md space-y-3 rounded-xl bg-card-background p-6 shadow-lg dark:bg-primary-weak">
                       <div className="mb-2 text-left text-lg font-semibold">Ready to Start the Question?</div>
                       <p className="mb-4 text-left text-sm text-primary-heavy">

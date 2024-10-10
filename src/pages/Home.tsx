@@ -14,11 +14,11 @@ export default function Home() {
   const [selectedSubjects, setSelectedSubjects] = useState<string[]>([])
 
   return (
-    <main className="bg-background px-16 pt-8">
-      <h1 className="mb-8 text-4xl text-primary">Discover Problems</h1>
-      <div className="px-2.5">
+    <main className="bg-background px-8 py-12">
+      <h1 className="mb-4 text-4xl text-primary">Problems</h1>
+      <div className="">
         {/* Tier's NavMenu */}
-        <ul className="flex space-x-8 py-4">
+        <ul className="flex space-x-8 py-2">
           {tiers.map((tier) => (
             <NavMenuItem
               key={tier}
@@ -29,12 +29,11 @@ export default function Home() {
             />
           ))}
         </ul>
-        <div className="flex h-6 items-center space-x-4">
+        <div className="flex items-center space-x-4">
           <Button variant="primary">Filters</Button>
-          <Separator
-            className="w-[1.5px] bg-primary-weak dark:bg-primary-ghost"
-            orientation="vertical"
-          />
+          <div className="h-6">
+            <Separator className="w-[1.5px] bg-primary-weak dark:bg-primary-ghost" orientation="vertical" />
+          </div>{' '}
           {/* Subject filter */}
           <div className="">
             <SubjectFilter
@@ -49,7 +48,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="pt-8">
+      <div className="pt-4">
         <QuestionList tier={selectedTier} subjects={selectedSubjects} />
       </div>
     </main>

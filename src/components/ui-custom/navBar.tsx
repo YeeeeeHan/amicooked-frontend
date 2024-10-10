@@ -10,8 +10,8 @@ export function NavBar() {
 
   return (
     // border-b-2 border-primary-weak
-    <div className="sticky top-0 z-50 flex items-center justify-between bg-background px-16 py-3 dark:border-primary-ghost">
-      <div className="flex h-14 items-center space-x-8">
+    <div className="sticky top-0 z-50 flex h-16 items-center justify-between bg-background px-8 dark:border-primary-ghost">
+      <div className="flex items-center space-x-8">
         <div>
           <Link to="/">
             <img src={Logo} alt="Logo" />
@@ -24,7 +24,7 @@ export function NavBar() {
           Discussion
         </Link>
       </div>
-      <div className="flex h-14 items-center space-x-8">
+      <div className="flexitems-center space-x-8">
         <Button
           variant="ghost"
           size="icon"

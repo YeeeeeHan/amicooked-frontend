@@ -24,7 +24,7 @@ export function NavBar() {
           Discussion
         </Link>
       </div>
-      <div className="flexitems-center space-x-8">
+      <div className="flex items-center space-x-8">
         <Button
           variant="ghost"
           size="icon"
